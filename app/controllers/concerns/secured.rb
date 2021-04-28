@@ -24,7 +24,6 @@ module Secured
     if SCOPES[request.env['PATH_INFO']] == nil
       true
     else
-      debugger
       # The intersection of the scopes included in the given JWT and the ones in the SCOPES hash needed to access
       # the PATH_INFO, should contain at least one element
       (String(@auth_payload['scope']).split(' ') & (SCOPES[request.env['PATH_INFO']])).any?
